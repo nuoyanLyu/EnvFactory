@@ -12,7 +12,6 @@ This is the official implementation of **EnvFactory: Scaling Tool-Use Agents via
 - [RL Training](#rl)
 
 ## Quick Start
-
 ### Environment Setup
 ```bash
 conda create -n EnvFactory python=3.12
@@ -57,16 +56,13 @@ SGLANG_MODEL=Qwen/Qwen3-30B-A3B-Thinking-2507
 - Use [`src/serve/sglang.sh`](src/serve/sglang.sh) and [`src/serve/vllm.sh`](src/serve/vllm.sh) to serve local models.
 
 ## Environment Construction
-
 TODO (@Zilin)
 
 ## Tool-use Trajectories Synthesis
-
 1. Follow the example in [`examples/load_tool_graph.ipynb`](examples/load_tool_graph.ipynb) to save `graph.pkl` locally.
 2. Run [`examples/synthesize_query.py`](examples/sythesize_query.py) to synthesize tool-use trajectories.
 
 ## Data Processing
-
 After generation, run [`examples/process_data.sh`](examples/process_data.sh) to convert the data into SFT and RL training formats:
 
 ```bash
@@ -76,7 +72,6 @@ bash examples/process_data.sh
 To visualize the generation pipeline, run [`src/app/app.py`](src/app/app.py).
 
 ## SFT
-
 We use [LlamaFactory](https://github.com/hiyouga/LLaMAFactory) for SFT training. Add the following entry to your dataset config:
 
 ```json
@@ -93,8 +88,10 @@ We use [LlamaFactory](https://github.com/hiyouga/LLaMAFactory) for SFT training.
 }
 ```
 
-The SFT config is provided in [`configs/llamafactory_sft.yaml`](configs/llamafactory_sft.yaml).
+The SFT configuration is provided in [`configs/llamafactory_sft.yaml`](configs/llamafactory_sft.yaml).
 
 ## RL
+We use the forked [VeRL](https://github.com/RolandXMR/verl) for RL training. Please refer to the [README](https://github.com/RolandXMR/verl/tree/main/EnvFactory) for files we modified.
 
-TODO (@Minrui)
+## Citation
+If you find our work helpful, please consider citing:
