@@ -1,21 +1,33 @@
 # EnvFactory
-This is the official implementation of EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL.
+
+This is the official implementation of **EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL**.
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Environment Construction](#environment-construction)
+- [Tool-use Trajectories Synthesis](#tool-use-trajectories-synthesis)
+- [Data Processing](#data-processing)
+- [SFT Training](#sft)
+- [RL Training](#rl)
 
 ## Quick Start
+
 ### Environment Setup
-```
+```bash
 conda create -n EnvFactory python=3.12
 conda activate EnvFactory
 
 git clone https://github.com/LARK-AI-Lab/EnvFactory
 cd EnvFactory
 
-pip install -e .[vllm] 
+pip install -e ".[sglang]"
 ```
 
 ### Set Environment Variables
-Create a `.env` with your API keys as follow:
-```
+Create a `.env` file with your API keys as follows:
+
+```dotenv
 # 1. Default MCP configuration path
 MCP_CONFIG_PATH=configs/mcp_server.json
 
@@ -40,24 +52,34 @@ SGLANG_BASE_URL=http://localhost:${SGLANG_BASE_URL_PORT}/v1
 SGLANG_API_KEY=placeholder
 SGLANG_MODEL=Qwen/Qwen3-30B-A3B-Thinking-2507
 ```
-* Refer to `PROVIDER_MAPPING` from `EnvFactory/src/gen/__init__.py`.
-* Use `src/serve/sglang.sh` and `src/serve/vllm.sh` to serve local models.
+
+- Refer to `PROVIDER_MAPPING` in [`src/gen/__init__.py`](src/gen/__init__.py) for supported providers.
+- Use [`src/serve/sglang.sh`](src/serve/sglang.sh) and [`src/serve/vllm.sh`](src/serve/vllm.sh) to serve local models.
 
 ## Environment Construction
+
 TODO (@Zilin)
 
 ## Tool-use Trajectories Synthesis
-Firstly, following the example from `examples/load_tool_graph.ipynb` to save `graph.pkl` locally.
-Next, you may use the example from `examples/sythesize_query.py` to sythesize tool-use trajectories.
 
-## Data Process
-After generation, you can use `bash examples/process_data.sh` to convert to the SFT and RL training format.
-If you want to visualize the generation pipeline, you can use `src/app/app.py`.
+1. Follow the example in [`examples/load_tool_graph.ipynb`](examples/load_tool_graph.ipynb) to save `graph.pkl` locally.
+2. Run [`examples/synthesize_query.py`](examples/sythesize_query.py) to synthesize tool-use trajectories.
+
+## Data Processing
+
+After generation, run [`examples/process_data.sh`](examples/process_data.sh) to convert the data into SFT and RL training formats:
+
+```bash
+bash examples/process_data.sh
+```
+
+To visualize the generation pipeline, run [`src/app/app.py`](src/app/app.py).
 
 ## SFT
-We use LlamaFactory (https://github.com/hiyouga/LLaMAFactory) to conduct SFT training.
-You need to include data info as follow:
-```
+
+We use [LlamaFactory](https://github.com/hiyouga/LLaMAFactory) for SFT training. Add the following entry to your dataset config:
+
+```json
 "env_factory_sft": {
     "file_name": "env_factory_sft.json",
     "formatting": "alpaca",
@@ -66,11 +88,13 @@ You need to include data info as follow:
         "query": "input",
         "response": "output",
         "history": "history",
-        "system": "system",
+        "system": "system"
     }
 }
 ```
-We use the SFT config from `configs/llamafactory_sft.yaml`
+
+The SFT config is provided in [`configs/llamafactory_sft.yaml`](configs/llamafactory_sft.yaml).
 
 ## RL
+
 TODO (@Minrui)
