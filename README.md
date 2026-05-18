@@ -1,6 +1,13 @@
 # EnvFactory
-
 This is the official implementation of **EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL**.
+<div align="center">
+
+<a href="https://github.com/LARK-AI-Lab/EnvFactory" style="padding-right: 8px;"><img src="https://img.shields.io/badge/GitHub-Repo-black?style=flat&logo=github" alt="GitHub"></a>
+<a href="https://huggingface.co/LARK-AI-Lab" style="padding-right: 8px;"><img src="https://img.shields.io/badge/HuggingFace-LARK--AI--Lab-yellow?style=flat&logo=huggingface" alt="HuggingFace"></a>
+<a href="TODO" style="padding-right: 8px;"><img src="https://img.shields.io/badge/ArXiv-Paper-red?style=flat&logo=arxiv" alt="Arxiv"></a>
+<a href="https://lark-ai-lab.github.io/envfactory.github.io/"><img src="https://img.shields.io/badge/Homepage-Website-blue?style=flat&logo=googlechrome" alt="Homepage"></a>
+
+</div>
 
 ## Table of Contents
 
