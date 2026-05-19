@@ -2,11 +2,11 @@
 
 # EnvFactory
 
-**Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL**
+**EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL**
 
 <a href="https://github.com/LARK-AI-Lab/EnvFactory"><img src="https://img.shields.io/badge/GitHub-Repo-black?style=for-the-badge&logo=github" alt="GitHub"></a>
-<a href="https://huggingface.co/LARK-AI-Lab"><img src="https://img.shields.io/badge/HuggingFace-Models-yellow?style=for-the-badge&logo=huggingface" alt="HuggingFace"></a>
-<a href="TODO"><img src="https://img.shields.io/badge/ArXiv-Paper-red?style=for-the-badge&logo=arxiv" alt="Arxiv"></a>
+<a href="https://huggingface.co/collections/LARK-Lab/envfactory"><img src="https://img.shields.io/badge/HuggingFace-Models-yellow?style=for-the-badge&logo=huggingface" alt="HuggingFace"></a>
+<a href="https://arxiv.org/abs/2605.18703"><img src="https://img.shields.io/badge/ArXiv-Paper-red?style=for-the-badge&logo=arxiv" alt="Arxiv"></a>
 <a href="https://lark-ai-lab.github.io/envfactory.github.io/"><img src="https://img.shields.io/badge/Homepage-Website-blue?style=for-the-badge&logo=googlechrome" alt="Homepage"></a>
 
 ---
@@ -17,14 +17,14 @@
 
 <div align="center">
 
-| | Type | Name | Description |
+| | Type | Name | Size |
 |:---:|:---:|------|:-----------:|
-| 🤖 | Model | [EnvFactory-1.7B](https://huggingface.co/LARK-Lab/EnvFactory-1.7B) | 1.7B params |
-| 🤖 | Model | [EnvFactory-4B](https://huggingface.co/LARK-Lab/EnvFactory-4B) | 4B params |
-| 🤖 | Model | [EnvFactory-8B](https://huggingface.co/LARK-Lab/EnvFactory-8B) | 8B params |
-| 📂 | Dataset | [EnvFactory-RL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-RL-FILTERED) | RL Data |
-| 📂 | Dataset | [EnvFactory-SFT-FILTERED](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-FILTERED) | Filtered SFT data |
-| 📂 | Dataset | [EnvFactory-SFT-ALL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-ALL) | Full SFT data |
+| 🤖 | Model | [EnvFactory-1.7B](https://huggingface.co/LARK-Lab/EnvFactory-1.7B) | 1.7B |
+| 🤖 | Model | [EnvFactory-4B](https://huggingface.co/LARK-Lab/EnvFactory-4B) | 4B |
+| 🤖 | Model | [EnvFactory-8B](https://huggingface.co/LARK-Lab/EnvFactory-8B) | 8B |
+| 📂 | Dataset | [EnvFactory-RL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-RL) | RL Data (3.09k) |
+| 📂 | Dataset | [EnvFactory-SFT-FILTERED](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-FILTERED) | Filtered SFT Data (53.4k) |
+| 📂 | Dataset | [EnvFactory-SFT-ALL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-ALL) | Full SFT Data (26.5k) |
 
 </div>
 
@@ -178,12 +178,12 @@ If you find our work helpful, please consider citing:
 
 ```bibtex
 @misc{xu2026envfactoryscalingtooluseagents,
-  title         = {EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL},
-  author        = {Minrui Xu and Zilin Wang and Mengyi Deng and Zhiwei Li and Zhicheng Yang and Xiao Zhu and Yinhong Liu and Boyu Zhu and Baiyu Huang and Chao Chen and Heyuan Deng and Fei Mi and Lifeng Shang and Xingshan Zeng and Zhijiang Guo},
-  year          = {2026},
-  eprint        = {todo},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.LG},
-  url           = {todo}
+      title={EnvFactory: Scaling Tool-Use Agents via Executable Environments Synthesis and Robust RL}, 
+      author={Minrui Xu and Zilin Wang and Mengyi DENG and Zhiwei Li and Zhicheng Yang and Xiao Zhu and Yinhong Liu and Boyu Zhu and Baiyu Huang and Chao Chen and Heyuan Deng and Fei Mi and Lifeng Shang and Xingshan Zeng and Zhijiang Guo},
+      year={2026},
+      eprint={2605.18703},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2605.18703}, 
 }
 ```
