@@ -23,8 +23,8 @@
 | 🤖 | Model | [EnvFactory-4B](https://huggingface.co/LARK-Lab/EnvFactory-4B) | 4B |
 | 🤖 | Model | [EnvFactory-8B](https://huggingface.co/LARK-Lab/EnvFactory-8B) | 8B |
 | 📂 | Dataset | [EnvFactory-RL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-RL) | RL Data (3.09k) |
-| 📂 | Dataset | [EnvFactory-SFT-FILTERED](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-FILTERED) | Filtered SFT Data (53.4k) |
-| 📂 | Dataset | [EnvFactory-SFT-ALL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-ALL) | Full SFT Data (26.5k) |
+| 📂 | Dataset | [EnvFactory-SFT-FILTERED](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-FILTERED) | Filtered SFT Data (26.5k) |
+| 📂 | Dataset | [EnvFactory-SFT-ALL](https://huggingface.co/datasets/LARK-Lab/EnvFactory-SFT-ALL) | Full SFT Data (53.4k) |
 
 </div>
 
