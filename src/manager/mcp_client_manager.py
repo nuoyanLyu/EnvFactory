@@ -95,6 +95,7 @@ class MCPClientManager:
                 self.server_to_path_mapping.clear()
                 self.tools.clear()
 
+        server_names = list(config.get("mcpServers", {}).keys())
         tasks = [
             self.register_mcp_server_async(
                 server_name, server_config["tool_path"],
@@ -102,7 +103,12 @@ class MCPClientManager:
             )
             for server_name, server_config in config.get("mcpServers", {}).items()
         ]
-        await asyncio.gather(*tasks)
+        # Tolerate broken individual servers: a single failing server must not
+        # abort initialization of all others (e.g. a malformed generated tool).
+        results = await asyncio.gather(*tasks, return_exceptions=True)
+        for server_name, result in zip(server_names, results):
+            if isinstance(result, Exception):
+                print(f"Warning: failed to register MCP server '{server_name}': {result!r}")
         self._initialized = True
 
     async def register_mcp_server_async(self, server_name: str, tool_path: str, is_stateless: bool = False):

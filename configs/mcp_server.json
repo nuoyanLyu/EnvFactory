@@ -339,6 +339,18 @@
         "WikipediaServer": {
             "tool_path": "envs/tools/WikipediaServer.py",
             "stateless": false
+        },
+        "Calculator": {
+            "tool_path": "envs/tools/Calculator.py",
+            "stateless": false
+        },
+        "CoresignalJobs": {
+            "tool_path": "envs/tools/CoresignalJobs.py",
+            "stateless": false
+        },
+        "Dictionary": {
+            "tool_path": "envs/tools/Dictionary.py",
+            "stateless": false
         }
     }
 }

@@ -21,10 +21,10 @@ class EnvGenConfig(GenConfig):
     """
 
     # Model overrides for specific EnvGen subtasks
-    schema_gen_model: Optional[str] = "claude"
+    schema_gen_model: Optional[str] = "kimi"
     """Schema generation model, uses model_name if None"""
 
-    tool_gen_model: Optional[str] = "claude"
+    tool_gen_model: Optional[str] = "kimi"
     """Tool generation model, uses model_name if None"""
 
     # Scenario generation settings

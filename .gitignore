@@ -26,3 +26,16 @@ __pycache__/
 
 # Serialized/Cache Files
 *.pkl
+
+# generated files
+envs/intermediate/*
+EnvFactory-RL/*
+
+# Local generation residue (RL datasets, experiment scripts, locally generated tools)
+/rl_train.json
+/rl_val.json
+examples/build_graph_4envs.py
+examples/synthesize_rl_4envs.py
+examples/test_rl_dataset_envs.py
+envs/tools/CoresignalJobs.py
+envs/tools/Dictionary.py

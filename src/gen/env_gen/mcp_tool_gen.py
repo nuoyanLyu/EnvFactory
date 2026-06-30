@@ -188,6 +188,11 @@ class MCPToolGen(Gen):
         if not isinstance(tool_code, str):
             raise ValueError("tool_code must be a string")
 
+        # The prompt instructs the model to emit raw Python with no markdown,
+        # but some models still wrap the code in ```python ... ``` fences.
+        # Strip them so the saved file is valid Python.
+        tool_code = strip_code_fences(tool_code)
+
         # Build file path
         tools_dir = Path("envs/tools")
         tools_dir.mkdir(parents=True, exist_ok=True)
@@ -201,6 +206,42 @@ class MCPToolGen(Gen):
             return file_path
         except Exception as e:
             raise IOError(f"Failed to save tool file to {file_path}: {e}") from e
+
+
+def strip_code_fences(tool_code: str) -> str:
+    """
+    Remove a wrapping markdown code fence (```python ... ```) from generated code.
+
+    The generation prompt forbids markdown formatting, but some models still wrap
+    their output in a fenced block. Only an outer fence is stripped; the inner code
+    is left untouched.
+
+    Args:
+        tool_code: Generated tool code, possibly fence-wrapped
+
+    Returns:
+        Code with the outer markdown fence removed (no-op if none present)
+    """
+    lines = tool_code.split('\n')
+
+    # Drop leading blank lines, then an opening fence such as ``` or ```python
+    start = 0
+    while start < len(lines) and lines[start].strip() == '':
+        start += 1
+    if start < len(lines) and lines[start].lstrip().startswith('```'):
+        start += 1
+    else:
+        # No opening fence; leave the code unchanged
+        return tool_code
+
+    # Drop trailing blank lines, then the matching closing fence
+    end = len(lines)
+    while end > start and lines[end - 1].strip() == '':
+        end -= 1
+    if end > start and lines[end - 1].strip().startswith('```'):
+        end -= 1
+
+    return '\n'.join(lines[start:end])
 
 
 def extract_pydantic_models(tool_code: str) -> str:
